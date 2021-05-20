@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <title>Minh cung giao thong</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' type='text/css' href='minhthong.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding-top: 8%;
+            height: 100%;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: Arial;
+        }
+        
+        p {
+            font-family: Arial;
+        }
+        
+        .container {
+            padding: 80px 120px;
+        }
+        
+        .container-fluid {
+            padding: 20px 20px;
+        }
+        
+        #myCarousel.container {
+            width: 250px;
+            height: 75px;
+            padding: 20px 20px;
+            text-align: center;
+            background-color: #FFECB9;
+            border: 3px solid #B2A581;
+        }
+        
+        #myCarousel.carousel.slide {
+            max-width: 800px;
+            max-height: 400px;
+        }
+        
+        #myCarousel.carousel-inner {
+            max-width: 800px !important;
+            max-height: 400px !important;
+        }
+        
+        #myCarousel1.carousel.slide,
+        #myCarousel1.carousel-inner {
+            max-width: 590px !important;
+            max-height: 400px !important;
+        }
+        
+        #myCarousel1.carousel.slide ol {
+            margin-bottom: -40px;
+        }
+        
+        #myCarousel1.carousel-indicators-numbers li {
+            text-indent: 0;
+            margin: 0 2px;
+            margin-bottom: -50px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            line-height: 30px;
+            color: #fff;
+            background-color: #999;
+            transition: all 0.25s ease;
+        }
+        
+        #myCarousel1.carousel-indicators-numbers li.active {
+            margin: 0 2px;
+            margin-bottom: -50px;
+            width: 30px;
+            height: 30px;
+            background-color: #337ab7;
+        }
+        
+        #myCarousel1.carousel-indicators-numbers li:hover {
+            margin: 0 2px;
+            margin-bottom: -50px;
+            width: 30px;
+            height: 30px;
+            background-color: #3D93DD;
+        }
+        
+        .carousel-inner img {
+            margin: auto;
+            width: 100%;
+            max-height: 400px;
+        }
+        
+        .carousel-caption h3 {
+            color: #fff !important;
+            text-shadow: 2px 2px black;
+        }
+        
+        .carousel-caption p {
+            color: #fff !important;
+            font-size: 16px;
+            text-shadow: 1px 1px black;
+        }
+        
+        @media screen and (max-width: 479px) {
+            .carousel-caption {
+                display: none;
+                /* Hide the carousel text when the screen is less than 600 pixels wide */
+            }
+        }
+        
+        .carousel-indicators {
+            bottom: 0;
+        }
+        
+        .image-container {
+            height: 450px;
+            position: relative;
+        }
+        
+        .image-container img {
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto auto;
+        }
+        
+        #navbar.container-fluid {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .navbar {
+            margin-bottom: 0;
+            background-color: #E8CCAA;
+            border: 0;
+            font-size: 11px !important;
+            letter-spacing: 4px;
+            opacity: 0.9;
+        }
+        /* Add a gray color to all navbar links */
+        
+        .navbar li a,
+        .navbar .navbar-brand {
+            color: #000 !important;
+        }
+        /* On hover, the links will turn white */
+        
+        .navbar-nav li a:hover {
+            color: #fff !important;
+        }
+        /* The active link */
+        
+        .navbar-nav li.active a {
+            color: #fff !important;
+            background-color: #29292c !important;
+        }
+        /* Remove border color from the collapsible button */
+        
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+        }
+        /* Dropdown */
+        
+        .open .dropdown-toggle {
+            color: #fff;
+            background-color: #B49F84 !important;
+        }
+        /* Dropdown links */
+        
+        .dropdown-menu li a {
+            color: #000 !important;
+        }
+        /* On hover, the dropdown links will turn red */
+        
+        .dropdown-menu li a:hover {
+            background-color: #B49F84 !important;
+        }
+        
+        #navbar input[type="text"] {
+            display: inline-block;
+            float: right;
+            padding: 5px 0px;
+            border: none;
+            margin: 7px 0px;
+            font-size: 18px;
+        }
+        
+        .search {
+            display: inline-block;
+            float: right;
+            padding: 5px 10px;
+            margin: 7px 0px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .search:hover {
+            background: #B9A78E;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="5">
+        <div id="navbar" class="container-fluid" style="background-color:#FFEBC1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://localhost:3001/dangky"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                <li><a href="http://localhost:3001/dangnhap"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+            </ul>
+        </div>
+
+        <div id="navbar" class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+                <a class="navbar-brand" href="#"><em>Mình cùng giao thông</em></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://localhost:3001/trangchu">TRANG CHỦ</a></li>
+                    <li><a href="http://localhost:3001/vanbanluat">VĂN BẢN LUẬT</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">THI SÁT HẠCH
+							<span class="caret"></span>
+						</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="a1.html">Lý thuyết A1</a></li>
+                            <li><a href="a2.html">Lý thuyết A2</a></li>
+                            <li><a href="a3.html">Lý thuyết B2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://localhost:3001/dangkythi">ĐĂNG KÝ THI</a></li>
+                    <input id="searchbar" type="text" name="search" placeholder="Search...">
+                    <button action="#" class="search">
+							<i class="fa fa-search" style="font-size: 18px;"></i>
+						</button>
+                    <div id="match-list"></div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="image-container">
+        <img src="minhthong.jpg" alt="Nào mình cùng giao thông" class="d-block img-fluid" margin: auto;>
+    </div>
+
+
+    <div class="row">
+
+        <!-- Container (TIN TUC GIAO THONG) -->
+        <div class="col-sm-7">
+
+            <div class="container-fluid text-left">
+                <h4>TIN TỨC GIAO THÔNG</h4>
+            </div>
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol id="myCarousel" class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div id="myCarousel" class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="test1.jpg" alt="Metro số 1" class="d-block img-fluid">
+                        <div class="carousel-caption">
+                            <h3>Hoàn thành một tầng ga Ba Son tuyến metro số 1 Bến Thành - Suối Tiên</h3>
+                            <p>Tầng B1 ga Ba Son thuộc tuyến metro số 1 (Bến Thành - Suối Tiên) hoàn thành vượt tiến độ 31 ngày so với kế hoạch.</p>
+                        </div>
+                    </div>
+
+                    <div id="myCarousel" class="item">
+                        <a href="https://www.google.com">
+                            <img src="test2.jpg" alt="Hoàn vé ga tàu" class="d-block img-fluid">
+                            <div class="carousel-caption">
+                                <h3>Thủ tục hoàn tiền vé tàu do dịch Covid-19</h3>
+                                <p>Ngành Đường sắt bắt đầu hoàn tiền trả vé cho hành khách do không thể đi do ảnh hưởng của dịch Covid-19 dịp Tết Nguyên đán Tân Sửu.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div id="myCarousel" class="item">
+                        <img src="test3.jpg" alt="Hà Nội vắng vẻ" class="d-block img-fluid">
+                        <div class="carousel-caption">
+                            <h3>Đường phố Hà Nội vắng vẻ ngày đầu đi làm sau nghỉ lễ</h3>
+                            <p>Tại các tuyến đường, ngã tư trọng điểm đều bất ngờ thông thoáng trong giờ cao điểm, người dân di chuyển thuận lợi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Container (CONG VAN MOI) -->
+        <div class="col-sm-5">
+
+            <div class="container-fluid text-left">
+                <h4>CÔNG VĂN MỚI</h4>
+            </div>
+
+            <div id="myCarousel1" class="carousel slide" data-ride="carousel" data-interval="false">
+                <!-- Indicators -->
+                <ol id="myCarousel1" class="carousel-indicators carousel-indicators-numbers">
+                    <li data-target="#myCarousel1" data-slide-to="0" class="active">1</li>
+                    <li data-target="#myCarousel1" data-slide-to="1">2</li>
+                    <li data-target="#myCarousel1" data-slide-to="2">3</li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div id="myCarousel1" class="carousel-inner" role="listbox">
+                    <div id="myCarousel1" class="item active">
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 1</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 2</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 3</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 4</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 5</p>
+                        </div>
+                    </div>
+
+                    <div id="myCarousel1" class="item">
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 6</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 7</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 8</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 9</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 10</p>
+                        </div>
+                    </div>
+
+                    <div id="myCarousel1" class="item">
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 11</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 12</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 13</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 14</p>
+                        </div>
+                        <div class="container-fluid text-left">
+                            <p>CÔNG VĂN MỚI - 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container (THONG TIN LIEN HE) -->
+    <div id="lienhe" class="container">
+        <h4 class="text-center">THÔNG TIN LIÊN HỆ/GÓP Ý</h4>
+        <p class="text-center"><em>Chung tôi mong muốn được lắng nghe góp ý để phát triển</em></p>
+        <div class="row test">
+            <div class="col-md-4">
+                <p>Mọi ý kiến phải hồi vui lòng liên hệ tại:</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span>Cầu Giấy, Hà Nội, Việt Nam</p>
+                <p><span class="glyphicon glyphicon-phone"></span>Phone: +84 151515151</p>
+                <p><span class="glyphicon glyphicon-envelope"></span>Email: thong.giao@mail.com</p>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                    </div>
+                </div>
+                <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <button class="btn pull-right" type="submit">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function() {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        })
+    </script>
+
+</body>
+
+</html>

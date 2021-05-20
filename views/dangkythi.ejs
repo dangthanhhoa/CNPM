@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <title>Dang ky - Minh cung giao thong</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding-top: 5%;
+            height: 100%;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: Arial;
+        }
+        
+        p {
+            font-family: Arial;
+        }
+        
+        #navbar.container-fluid {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .navbar {
+            margin-bottom: 0;
+            background-color: #E8CCAA;
+            border: 0;
+            font-size: 11px !important;
+            letter-spacing: 4px;
+            opacity: 0.9;
+        }
+        /* Add a gray color to all navbar links */
+        
+        .navbar li a,
+        .navbar .navbar-brand {
+            color: #000 !important;
+        }
+        /* On hover, the links will turn white */
+        
+        .navbar-nav li a:hover {
+            color: #fff !important;
+        }
+        /* The active link */
+        
+        .navbar-nav li.active a {
+            color: #fff !important;
+            background-color: #29292c !important;
+        }
+        /* Remove border color from the collapsible button */
+        
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+        }
+        /* Dropdown */
+        
+        .open .dropdown-toggle {
+            color: #fff;
+            background-color: #B49F84 !important;
+        }
+        /* Dropdown links */
+        
+        .dropdown-menu li a {
+            color: #000 !important;
+        }
+        /* On hover, the dropdown links will turn red */
+        
+        .dropdown-menu li a:hover {
+            background-color: #B49F84 !important;
+        }
+        
+        #navbar input[type="text"] {
+            display: inline-block;
+            float: right;
+            padding: 5px 0px;
+            border: none;
+            margin: 7px 0px;
+            font-size: 18px;
+        }
+        
+        .search {
+            display: inline-block;
+            float: right;
+            padding: 5px 10px;
+            margin: 7px 0px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .search:hover {
+            background: #B9A78E;
+        }
+        
+        label {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: inline;
+        }
+        
+        form {
+            margin: 5px 20px;
+        }
+        
+        .btn {
+            background-color: #E8CCAA;
+            border-color: #B49F84;
+        }
+        
+        .btn:hover {
+            background-color: #DAC0A0;
+            border-color: #B49F84;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" data-spy="affix" data-offset-top="5">
+        <div id="navbar" class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+                <a class="navbar-brand" href="#"><em>Mình cùng giao thông</em></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="minhthong.html">TRANG CHỦ</a></li>
+                    <li><a href="vanban.html">VĂN BẢN LUẬT</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">THI SÁT HẠCH
+							<span class="caret"></span>
+						</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="a1.html">Lý thuyết A1</a></li>
+                            <li><a href="a2.html">Lý thuyết A2</a></li>
+                            <li><a href="a3.html">Lý thuyết B2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="dangkythi.html">ĐĂNG KÝ THI</a></li>
+                    <input id="searchbar" type="text" name="search" placeholder="Search...">
+                    <button action="#" class="search">
+							<i class="fa fa-search" style="font-size: 18px;"></i>
+						</button>
+                    <div id="match-list"></div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
+                <legend>ĐĂNG KÝ THI SÁT HẠCH GIẤY PHÉP LÁI XE</legend>
+
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <b>Họ và tên</b><input class="form-control " name="name" placeholder="Họ và tên" required="" autofocus="" type="text">
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <b>Quốc tịch</b><input class="form-control" name="nationality" placeholder="Quốc tịch" required="" autofocus="" type="email">
+                    </div>
+
+                    <label><b>Ngày sinh</b>
+	   	  <div class="w-100"></div>
+		  <div class="col-xs-4 col-md-4">
+            <select class="form-control">
+                <option value="Day">1</option>
+                <option value="Day">2</option>
+                <option value="Day">3</option>
+                <option value="Day">4</option>
+                <option value="Day">5</option>
+                <option value="Day">6</option>
+                <option value="Day">7</option>
+                <option value="Day">8</option>
+                <option value="Day">9</option>
+                <option value="Day">10</option>
+                <option value="Day">11</option>
+                <option value="Day">12</option>
+                <option value="Day">13</option>
+                <option value="Day">14</option>
+                <option value="Day">15</option>
+                <option value="Day">16</option>
+                <option value="Day">17</option>
+                <option value="Day">18</option>
+                <option value="Day">19</option>
+                <option value="Day">20</option>
+                <option value="Day">21</option>
+                <option value="Day">22</option>
+                <option value="Day">23</option>
+                <option value="Day">24</option>
+                <option value="Day">25</option>
+                <option value="Day">26</option>
+                <option value="Day">27</option>
+                <option value="Day">28</option>
+                <option value="Day">29</option>
+                <option value="Day">30</option>
+                <option value="Day">31</option>
+            </select> 
+		  </div>
+		  <div class="col-xs-4 col-md-4">
+            <select class="form-control">
+                <option value="Month">1</option>
+                <option value="Month">2</option>
+                <option value="Month">3</option>
+                <option value="Month">4</option>
+                <option value="Month">5</option>
+                <option value="Month">6</option>
+                <option value="Month">7</option>
+                <option value="Month">8</option>
+                <option value="Month">9</option>
+                <option value="Month">10</option>
+                <option value="Month">11</option>
+                <option value="Month">12</option>
+            </select> 
+		  </div>
+		  <div class="col-xs-4 col-md-4">
+            <select class="form-control">
+                <option value="Year">1950</option>
+                <option value="Year">1951</option>
+                <option value="Year">1952</option>
+                <option value="Year">1953</option>
+                <option value="Year">1954</option>
+                <option value="Year">1955</option>
+                <option value="Year">1956</option>
+                <option value="Year">1957</option>
+                <option value="Year">1958</option>
+                <option value="Year">1959</option>
+                <option value="Year">1960</option>
+                <option value="Year">1961</option>
+                <option value="Year">1962</option>
+                <option value="Year">1963</option>
+                <option value="Year">1964</option>
+                <option value="Year">1965</option>
+                <option value="Year">1966</option>
+                <option value="Year">1967</option>
+                <option value="Year">1968</option>
+                <option value="Year">1969</option>
+                <option value="Year">1970</option>
+                <option value="Year">1971</option>
+                <option value="Year">1972</option>
+                <option value="Year">1973</option>
+                <option value="Year">1974</option>
+                <option value="Year">1975</option>
+                <option value="Year">1976</option>
+                <option value="Year">1977</option>
+                <option value="Year">1978</option>
+                <option value="Year">1979</option>
+                <option value="Year">1980</option>
+                <option value="Year">1981</option>
+                <option value="Year">1982</option>
+                <option value="Year">1983</option>
+                <option value="Year">1984</option>
+                <option value="Year">1985</option>
+                <option value="Year">1986</option>
+                <option value="Year">1987</option>
+                <option value="Year">1988</option>
+                <option value="Year">1989</option>
+                <option value="Year">1990</option>
+                <option value="Year">1991</option>
+                <option value="Year">1992</option>
+                <option value="Year">1993</option>
+                <option value="Year">1994</option>
+                <option value="Year">1995</option>
+                <option value="Year">1996</option>
+                <option value="Year">1997</option>
+                <option value="Year">1998</option>
+                <option value="Year">1999</option>
+                <option value="Year">2000</option>
+                <option value="Year">2001</option>
+                <option value="Year">2002</option>
+                <option value="Year">2003</option>
+            </select>
+		  </div>
+        </label>
+
+                    <label><b>Giới tính</b>
+			<div class="w-100"></div>
+			<div class="col-xs-6 col-md-6">
+				<label class="radio-inline"><input name="sex"id="inlineCheckbox1" value="male" type="radio">Nam</label>
+                </div>
+
+                <div class="col-xs-6 col-md-6">
+                    <label class="radio-inline"><input name="sex" id="inlineCheckbox2" value="female" type="radio">Nữ</label>
+                </div>
+                </label>
+
+                <div class="w-100"></div>
+                <label><b>Số CCCD/Hộ chiếu</b>
+				<input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input>
+			</label>
+
+                <div class="w-100"></div>
+                <label> Ngày cấp
+			<div class="w-100"></div>
+			<div class="col-xs-4 col-md-4">
+				<select class="form-control">
+					<option value="Day">1</option>
+					<option value="Day">2</option>
+					<option value="Day">3</option>
+					<option value="Day">4</option>
+					<option value="Day">5</option>
+					<option value="Day">6</option>
+					<option value="Day">7</option>
+					<option value="Day">8</option>
+					<option value="Day">9</option>
+					<option value="Day">10</option>
+					<option value="Day">11</option>
+					<option value="Day">12</option>
+					<option value="Day">13</option>
+					<option value="Day">14</option>
+					<option value="Day">15</option>
+					<option value="Day">16</option>
+					<option value="Day">17</option>
+					<option value="Day">18</option>
+					<option value="Day">19</option>
+					<option value="Day">20</option>
+					<option value="Day">21</option>
+					<option value="Day">22</option>
+					<option value="Day">23</option>
+					<option value="Day">24</option>
+					<option value="Day">25</option>
+					<option value="Day">26</option>
+					<option value="Day">27</option>
+					<option value="Day">28</option>
+					<option value="Day">29</option>
+					<option value="Day">30</option>
+					<option value="Day">31</option>
+				</select>
+			</div>
+			
+			<div class="col-xs-4 col-md-4">
+				<select class="form-control">
+					<option value="Month">1</option>
+					<option value="Month">2</option>
+					<option value="Month">3</option>
+					<option value="Month">4</option>
+					<option value="Month">5</option>
+					<option value="Month">6</option>
+					<option value="Month">7</option>
+					<option value="Month">8</option>
+					<option value="Month">9</option>
+					<option value="Month">10</option>
+					<option value="Month">11</option>
+					<option value="Month">12</option>
+				</select>
+			</div>
+			
+			<div class="col-xs-4 col-md-4">
+				<select class="form-control">
+					<option value="Year">1950</option>
+					<option value="Year">1951</option>
+					<option value="Year">1952</option>
+					<option value="Year">1953</option>
+					<option value="Year">1954</option>
+					<option value="Year">1955</option>
+					<option value="Year">1956</option>
+					<option value="Year">1957</option>
+					<option value="Year">1958</option>
+					<option value="Year">1959</option>
+					<option value="Year">1960</option>
+					<option value="Year">1961</option>
+					<option value="Year">1962</option>
+					<option value="Year">1963</option>
+					<option value="Year">1964</option>
+					<option value="Year">1965</option>
+					<option value="Year">1966</option>
+					<option value="Year">1967</option>
+					<option value="Year">1968</option>
+					<option value="Year">1969</option>
+					<option value="Year">1970</option>
+					<option value="Year">1971</option>
+					<option value="Year">1972</option>
+					<option value="Year">1973</option>
+					<option value="Year">1974</option>
+					<option value="Year">1975</option>
+					<option value="Year">1976</option>
+					<option value="Year">1977</option>
+					<option value="Year">1978</option>
+					<option value="Year">1979</option>
+					<option value="Year">1980</option>
+					<option value="Year">1981</option>
+					<option value="Year">1982</option>
+					<option value="Year">1983</option>
+					<option value="Year">1984</option>
+					<option value="Year">1985</option>
+					<option value="Year">1986</option>
+					<option value="Year">1987</option>
+					<option value="Year">1988</option>
+					<option value="Year">1989</option>
+					<option value="Year">1990</option>
+					<option value="Year">1991</option>
+					<option value="Year">1992</option>
+					<option value="Year">1993</option>
+					<option value="Year">1994</option>
+					<option value="Year">1995</option>
+					<option value="Year">1996</option>
+					<option value="Year">1997</option>
+					<option value="Year">1998</option>
+					<option value="Year">1999</option>
+					<option value="Year">2000</option>
+					<option value="Year">2001</option>
+					<option value="Year">2002</option>
+					<option value="Year">2003</option>
+					<option value="Year">2004</option>
+					<option value="Year">2005</option>
+					<option value="Year">2006</option>
+					<option value="Year">2007</option>
+					<option value="Year">2008</option>
+					<option value="Year">2009</option>
+					<option value="Year">2010</option>
+					<option value="Year">2011</option>
+					<option value="Year">2012</option>
+					<option value="Year">2013</option>
+					<option value="Year">2014</option>
+					<option value="Year">2015</option>
+					<option value="Year">2016</option>
+					<option value="Year">2017</option>
+					<option value="Year">2018</option>
+					<option value="Year">2019</option>
+					<option value="Year">2020</option>
+					<option value="Year">2021</option>
+				</select>
+			</div>
+        </label>
+
+                <div class="w-100"></div>
+                <label><b>Số GPLX (Nếu có)</b>
+            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input>
+            <div class="w-100"></div> 	
+			<label> Hạng <input type="text"></input></label>
+                </label>
+
+                <div class="w-100"></div>
+                <label> Ngày cấp
+			<div class="w-100"></div>
+			<div class="col-xs-4 col-md-4">
+				<select class="form-control">
+					<option value="Day">1</option>
+					<option value="Day">2</option>
+					<option value="Day">3</option>
+					<option value="Day">4</option>
+					<option value="Day">5</option>
+					<option value="Day">6</option>
+					<option value="Day">7</option>
+					<option value="Day">8</option>
+					<option value="Day">9</option>
+					<option value="Day">10</option>
+					<option value="Day">11</option>
+					<option value="Day">12</option>
+					<option value="Day">13</option>
+					<option value="Day">14</option>
+					<option value="Day">15</option>
+					<option value="Day">16</option>
+					<option value="Day">17</option>
+					<option value="Day">18</option>
+					<option value="Day">19</option>
+					<option value="Day">20</option>
+					<option value="Day">21</option>
+					<option value="Day">22</option>
+					<option value="Day">23</option>
+					<option value="Day">24</option>
+					<option value="Day">25</option>
+					<option value="Day">26</option>
+					<option value="Day">27</option>
+					<option value="Day">28</option>
+					<option value="Day">29</option>
+					<option value="Day">30</option>
+					<option value="Day">31</option>
+				</select>
+			</div>
+
+			<div class="col-xs-4 col-md-4">
+				<select class="form-control">
+					<option value="Month">1</option>
+					<option value="Month">2</option>
+					<option value="Month">3</option>
+					<option value="Month">4</option>
+					<option value="Month">5</option>
+					<option value="Month">6</option>
+					<option value="Month">7</option>
+					<option value="Month">8</option>
+					<option value="Month">9</option>
+					<option value="Month">10</option>
+					<option value="Month">11</option>
+					<option value="Month">12</option>
+				</select> 
+			</div>
+
+			<div class="col-xs-4 col-md-4">
+				<select class="form-control">
+					<option value="Year">1950</option>
+					<option value="Year">1951</option>
+					<option value="Year">1952</option>
+					<option value="Year">1953</option>
+					<option value="Year">1954</option>
+					<option value="Year">1955</option>
+					<option value="Year">1956</option>
+					<option value="Year">1957</option>
+					<option value="Year">1958</option>
+					<option value="Year">1959</option>
+					<option value="Year">1960</option>
+					<option value="Year">1961</option>
+					<option value="Year">1962</option>
+					<option value="Year">1963</option>
+					<option value="Year">1964</option>
+					<option value="Year">1965</option>
+					<option value="Year">1966</option>
+					<option value="Year">1967</option>
+					<option value="Year">1968</option>
+					<option value="Year">1969</option>
+					<option value="Year">1970</option>
+					<option value="Year">1971</option>
+					<option value="Year">1972</option>
+					<option value="Year">1973</option>
+					<option value="Year">1974</option>
+					<option value="Year">1975</option>
+					<option value="Year">1976</option>
+					<option value="Year">1977</option>
+					<option value="Year">1978</option>
+					<option value="Year">1979</option>
+					<option value="Year">1980</option>
+					<option value="Year">1981</option>
+					<option value="Year">1982</option>
+					<option value="Year">1983</option>
+					<option value="Year">1984</option>
+					<option value="Year">1985</option>
+					<option value="Year">1986</option>
+					<option value="Year">1987</option>
+					<option value="Year">1988</option>
+					<option value="Year">1989</option>
+					<option value="Year">1990</option>
+					<option value="Year">1991</option>
+					<option value="Year">1992</option>
+					<option value="Year">1993</option>
+					<option value="Year">1994</option>
+					<option value="Year">1995</option>
+					<option value="Year">1996</option>
+					<option value="Year">1997</option>
+					<option value="Year">1998</option>
+					<option value="Year">1999</option>
+					<option value="Year">2000</option>
+					<option value="Year">2001</option>
+					<option value="Year">2002</option>
+					<option value="Year">2003</option>
+					<option value="Year">2004</option>
+					<option value="Year">2005</option>
+					<option value="Year">2006</option>
+					<option value="Year">2007</option>
+					<option value="Year">2008</option>
+					<option value="Year">2009</option>
+					<option value="Year">2010</option>
+					<option value="Year">2011</option>
+					<option value="Year">2012</option>
+					<option value="Year">2013</option>
+					<option value="Year">2014</option>
+					<option value="Year">2015</option>
+					<option value="Year">2016</option>
+					<option value="Year">2017</option>
+					<option value="Year">2018</option>
+					<option value="Year">2019</option>
+					<option value="Year">2020</option>
+					<option value="Year">2021</option>
+				</select>
+			</div>
+        </label>
+
+                <div class="w-100"></div>
+                <label>
+            Hạng GPLX dự sát hạch <input type="text"></input>
+        </label>
+
+
+                <form enctype="multipart/form-data" method="POST"> Scan giấy chứng nhận sức khỏe
+                    <input type="file" name="myfile" />
+                </form>
+
+                <form enctype="multipart/form-data" method="POST"> Ảnh màu 3x4
+                    <input type="file" name="myfile" />
+                </form>
+
+                <form enctype="multipart/form-data" method="POST"> Scan CCCD hoặc hộ chiếu
+                    <input type="file" name="myfile" />
+                </form>
+
+                <form enctype="multipart/form-data" method="POST"> Scan GPLX hiện có (nếu có)
+                    <input type="file" name="myfile" />
+                </form>
+
+                <div class="w-100"></div>
+                <div class="col-xs-1 col-md-1">
+                    <input name="confirmed" id="inlineCheckbox3" value="confirmed" type="checkbox">
+                </div>
+                <div class="col-xs-11 col-md-11">
+                    <b>Tôi xin cam đoan những điều ghi trên là đúng sự thật, nếu sai tôi xin hoàn toàn chịu trách nhiệm.</b>
+                </div>
+
+                <br>
+                <br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button>
+
+            </div>
+        </div>
+    </div>
